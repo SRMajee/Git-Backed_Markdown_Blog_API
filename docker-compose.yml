@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: git-blog-backend
+    ports:
+      - "3000:3000"
+    volumes:
+      # Live-mount markdown posts so changes update instantly without rebuild
+      - ./backend/content/posts:/app/content/posts:ro
+    environment:
+      - CONTENT_DIR=/app/content/posts
+      - BIND_ADDR=0.0.0.0:3000
+      - RUST_LOG=git_blog_api=debug,tower_http=debug
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=/api
+    container_name: git-blog-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
