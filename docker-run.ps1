@@ -36,3 +36,4 @@ Write-Host "💡 Press Ctrl+C to stop the containers." -ForegroundColor Gray
 Write-Host ""
 
 docker compose up --build
+

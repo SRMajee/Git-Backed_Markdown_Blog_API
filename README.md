@@ -234,3 +234,4 @@ Errors are standardized through `AppError` and `IntoResponse`:
 - **Path Traversal Protection**: Slugs are strictly sanitized in `handlers/post.rs`. Any path containing `..`, `/`, or `\` is rejected immediately with HTTP 400 before touching the filesystem.
 - **CORS**: Configured with `tower-http` to allow cross-origin requests from the Vite development server. In Docker, Nginx acts as a reverse proxy on the same origin (`/api/`), avoiding CORS altogether in production.
 - **Strict Typing**: Struct serialization is verified at compile-time by `serde`, preventing prototype pollution and unhandled schema drift.
+

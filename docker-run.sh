@@ -28,3 +28,4 @@ echo "💡 Press Ctrl+C to stop the containers."
 echo ""
 
 docker compose up --build
+

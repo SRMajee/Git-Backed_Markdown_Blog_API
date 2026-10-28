@@ -46,3 +46,4 @@ ENV RUST_LOG=git_blog_api=info,tower_http=info
 EXPOSE 3000
 
 CMD ["git-blog-api"]
+

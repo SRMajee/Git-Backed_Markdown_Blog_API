@@ -38,3 +38,4 @@ echo "💡 Press Ctrl+C at any time to stop both servers."
 echo ""
 
 (cd "$ROOT_DIR/frontend" && pnpm dev)
+
